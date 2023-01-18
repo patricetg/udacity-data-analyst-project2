@@ -14266,7 +14266,35 @@ a.anchor-link {
 <li>The 2nd piece of data was retrieved through an API with the Request library</li>
 <li>The last piece of data was retrieved through the Tweeter API with the Tweepy library</li>
 </ol>
-<p>Once that step was finalized, the next thing I did was to assess my data. There were tidiness and quality issues that I next addressed. And last, based on the cleaned data, I made an Exploratory Data Analysis in order to gain some insights from my dataset.</p>
+<p>Once that step was finalized, the next thing I did was to assess my data. I spoted many tidiness and quality issues, which I addressed next. There were many challenges that arise during assessment; here are some of them:</p>
+<ul>
+<li>The main challenge is the fact that there are dogs with multiple stage. There cleaning was difficult and tedious. I needed to manually (visually) locate each case, assess its particularity, then define myself which stage should be consired real before doing the cleaning.</li>
+<li>Another challenge I resolved was related to the dogs without stages. When applying pandas.melt() to the dataframe to clean the fact that there are dog's stage names as column, I ended up with duplicate values related to those unknown stage. </li>
+</ul>
+<p>One of the main things I did was to fuse the three pieces of retrieved data together in order to conform to tidiness issue, and to make easier some Exploratory Data Analysis (EDA) works.</p>
+<p>Here are the documented issues in the retrieved piece of data:<br>
+<strong>Tidiness issues</strong></p>
+<ol>
+<li><code>twitter_archive_df</code> and <code>tweets_df</code> should form one dataframe instead being two different dataframes.</li>
+<li><code>twitter_archive_df</code> has values as columns for the stage of the dog.</li>
+<li><code>twitter_archive_df</code> has useless columns for our purpose, such as status_id, status_user_id, status_timestamp, ...</li>
+<li><code>tweets_df.user</code> should contains the id of another dataframe named <code>user</code>.</li>
+<li><code>twitter_archive_df</code> and <code>image_predictions_df</code> should form one dataframe instead being two different dataframes.                 </li>
+</ol>
+<p><strong>Quality issues</strong></p>
+<ol>
+<li><code>twitter_archive_df['source']</code> has tag <code>a</code> as value instead of the value of <code>href</code> attribute</li>
+<li>Wrong datatypes in <code>twitter_archive_df</code> in the following columns : <code>timestamp</code></li>
+<li><code>twitter_archive_df</code> has retweet samples, which are useless for our purpose (according to the project instructions)</li>
+<li>Null values in the following columns of <code>twitter_archive_df</code> : <code>in_reply_to_status_id, in_reply_to_user_id, retweeted_status_id, retweeted_status_user_id, retweeted_status_timestamp, expanded_urls</code>.</li>
+<li>Useless columns in <code>tweet_df</code></li>
+<li><code>tweets_df.created</code> has value beyond August 1st, 2017, which mean those sample will not have corresponding value in image_predictions_df</li>
+<li>Some samples in <code>image_predictions_df</code> are not dog</li>
+<li>In columns <code>p1</code>, <code>p2</code>, and <code>p3</code> of <code>image_predictions_df</code>, some values are capitalized while others are not</li>
+<li>In <code>image_predictions_df</code>, only the most confident prediction is relevant</li>
+<li>In <code>twitter_archive_df</code>, there are samples which have more than 1 stage</li>
+</ol>
+<p>After the tidiness and quality issues were dealt with, I made an EDA base on the clean data in order to gain some insights from my dataset.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">

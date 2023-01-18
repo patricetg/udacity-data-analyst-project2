@@ -14262,14 +14262,40 @@ a.anchor-link {
 <h2 id="Report:-Activity-report">Report: Activity report<a class="anchor-link" href="#Report:-Activity-report">&#182;</a></h2><p>This document is the report of my Exploration Data Analysis of my second of <a href="https://www.udacity.com/course/data-analyst-nanodegree--nd002">Udacity Data Analyst</a>. It will give a summary of the insights I gained after exploring <a href="https://twitter.com/dog_rates">WeRateDogs</a> dataset, a twitter account where dogs are given ratings for fun.</p>
 <p>The questions that were the target of my investigation are:</p>
 <ol>
-<li>How does the popularity of WeRateDogs evolved over the years ?</li>
-<li>Is a particular dog's stage is more likely to raise higher level of interest ? </li>
-<li>Is a particular dog's stage is more likely to be loved ?</li>
-<li>Is there a relationship between the level of interest and the score ?</li>
-<li>Are the ratings influenced by the posting period (morning, miday, evening, afternoon, ...) ?</li>
-<li>Is the number of images associated wih a post help increase its rating ?</li>
-<li>Is a particular dog's breed is more likely to be loved ?</li>
+<li><p>How does the popularity of WeRateDogs evolved over the years ?<br>
+ Here, I explored how the post's count evolved over the years. It appear that my data didn't span over enough years to give a confident answer, but I was still able to observe that the WeRateDogs account saw the highet number of tweets in 2016.</p>
+</li>
+<li><p>Is a particular dog's stage is more likely to raise higher level of interest ? 
+ we explorered the relationship between the dog's stages and the retweets count's mean. The goal here was to evaluate the level of interested raised by each dog's stages. Doggo and puppo are the most popular stages.</p>
+</li>
+<li><p>Is a particular dog's stage is more likely to be loved ?<br>
+ We analyzed the relationship between the dog's stages and the score. In order to achieve our goal, we create a new column containing the real value of the rating numerator divided by the rating denominator. We conclude after our analysis that the ratings are fair, and that the Reviwer show no bias toward a particular dog's stage.</p>
+</li>
+<li><p>Is there a relationship between the level of interest and the score ?<br>
+ We were interested to know if the rating is influenced by (or correlated to) the retweet count. The answer after analysis was no.</p>
+</li>
+<li><p>Are the ratings influenced by the posting period (morning, miday, evening, afternoon, ...) ?<br>
+ We investigated if the day period (morning, miday, evening, afternoon, ...) somehow has an impact on the ratings, and we were surprised to find that that was the case.</p>
+</li>
+<li><p>Is the number of images associated wih a post help increase its rating ?<br>
+ We confirmed after investigation that a high number of image has positive impact on the rating, and that 03 or 04 images should be joined to each tweet in order to increase the chance of having higher score.</p>
+</li>
+<li><p>Is a particular dog's breed is more likely to be loved ?<br>
+ We analyzed the relationship between the breed and the rating. And we observe that the breed has negligible influence on the rating.</p>
+</li>
 </ol>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="images/retweets_per_stage_plot.png" alt="Retweets per stage plot"></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="images/mean_ratings_per_day_period.png" alt="Mean ratings per day periods"></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
